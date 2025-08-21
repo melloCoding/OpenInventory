@@ -10,8 +10,9 @@ onMounted(async () => {
 
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-    <button>say hello world</button>
+    <input id="toner type" type="text" placeholder="toner type" />
+    <input id="quantity" type="text" placeholder="quantity" />
+    <input id="location" type="text" placeholder="location" />
+    <button>add values</button>
   </div>
 </template>
