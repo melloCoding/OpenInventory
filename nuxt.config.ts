@@ -6,5 +6,6 @@ export default defineNuxtConfig({
     experimental: {
       database: true
     }
-  }
+  },
+  modules: ['@nuxt/ui', ]
 })
