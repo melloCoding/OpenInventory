@@ -4,7 +4,7 @@ async function useDatabaseHere() {
 
   // Create users table
   await db.sql`DROP TABLE IF EXISTS users`;
-  await db.sql`CREATE TABLE IF NOT EXISTS users ("id" TEXT PRIMARY KEY, "tonerType" TEXT, "Quantity" TEXT, "Location" TEXT)`;
+  await db.sql`CREATE TABLE IF NOT EXISTS users ("id" TEXT PRIMARY KEY, "tonerType" TEXT, "quantity" TEXT, "location" TEXT)`;
 
   // Add a new user
   const userId = String(Math.round(Math.random() * 10_000));
