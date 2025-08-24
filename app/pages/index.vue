@@ -21,7 +21,7 @@ async function addToner() {
       },
     });
     if (res?.ok) {
-      msg.value = `Saved! New id: ${res.user?.id}`;
+      msg.value = `Saved! New id: ${res.toner?.id}`;
       // optional: clear inputs
       tonerType.value = "";
       quantity.value = "";
@@ -57,7 +57,10 @@ onMounted(async () => {
       v-model="quantity"
       id="quantity"
       type="text"
+      inputmode="numeric"
+      pattern="[0-9]*"
       placeholder="quantity"
+      @input="quantity = quantity.replace(/[^0-9]/g, '')"
     />
     <input
       v-model="location"
@@ -70,6 +73,8 @@ onMounted(async () => {
     </button>
     <p v-if="msg">{{ msg }}</p>
   </div>
+
+  <addToner />
 </template>
 
 <script lang="ts" setup></script>

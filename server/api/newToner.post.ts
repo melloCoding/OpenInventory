@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
 
    const body = await readBody<{
      tonerType?: string;
-      quantity?: string;
+      quantity?: number;
       location?: string;
    }>(event);
 
@@ -12,11 +12,12 @@ export default defineEventHandler(async (event) => {
     return { error: "tonerType, quantity, and location are required." };
   }
 
-   await db.sql`
-    CREATE TABLE IF NOT EXISTS users (
+   await db.sql
+   `
+    CREATE TABLE IF NOT EXISTS toner (
       id TEXT PRIMARY KEY,
       tonerType TEXT,
-      quantity TEXT,
+      quantity integer,
       location TEXT
     )
   `;
