@@ -2,14 +2,13 @@ export default defineEventHandler(async (event) => {
    const db = useDatabase();
 
    const body = await readBody<{
-     tonerType?: string;
+      tonerType?: string;
       quantity?: number;
-      location?: string;
    }>(event);
 
-   if (!body?.tonerType || !body?.quantity || !body?.location) {
+   if (!body?.tonerType || !body?.quantity) {
     setResponseStatus(event, 400);
-    return { error: "tonerType, quantity, and location are required." };
+    return { error: "tonerType and quantity are required" };
   }
 
    await db.sql
@@ -17,21 +16,20 @@ export default defineEventHandler(async (event) => {
     CREATE TABLE IF NOT EXISTS toner (
       id TEXT PRIMARY KEY,
       tonerType TEXT,
-      quantity integer,
-      location TEXT
+      quantity integer
     )
   `;
 
     // Add a new user
    const userId = String(Math.round(Math.random() * 10_000));
    await db.sql`
-    INSERT INTO users (id, tonerType, quantity, location)
-    VALUES (${userId}, ${body.tonerType}, ${body.quantity}, ${body.location})
+    INSERT INTO toner (id, tonerType, quantity)
+    VALUES (${userId}, ${body.tonerType}, ${body.quantity})
   `;
 
-   // Query for users
-  const { rows } = await db.sql`SELECT * FROM users WHERE id = ${userId}`;
-   
+   // Query for toner
+  const { rows } = await db.sql`SELECT * FROM toner WHERE id = ${userId}`;
+
   return { ok: true, user: rows?.[0] ?? null };
 
 });
