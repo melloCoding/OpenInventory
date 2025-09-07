@@ -41,33 +41,37 @@ onMounted(async () => {
 });
 */
 </script>
-
+<!--
+#539fe6 - secondary
+-->
 <template>
-  <div class="flex h-screen justify-center items-center">
-    <UForm :state="{ tonerType, quantity }">
-      <UFormField>
-        <UInput
-          v-model="tonerType"
-          id="toner type"
-          type="text"
-          placeholder="toner type"
-        />
-      </UFormField>
-
-      <UFormField>
-        <UInput
-          v-model="quantity"
-          id="quantity"
-          type="text"
-          inputmode="numeric"
-          placeholder="quantity"
-        />
-      </UFormField>
-
-      <UButton :disabled="loading" @click="addToner">
-        {{ loading ? "Saving..." : "Add values" }}
-      </UButton>
-      <p v-if="msg">{{ msg }}</p>
-    </UForm>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div class="bg-secondary px-7 py-7 rounded-lg shadow-lg">
+        <UForm :state="{ tonerType, quantity }">
+          <UFormField class="mb-2" label="Toner Type" description="Ex: TN-660 TN-830" required>
+            <UInput
+              v-model="tonerType"
+              id="Toner Type"
+              type="text"
+              placeholder="toner type"
+              class="w-full"
+            />
+          </UFormField>
+          <UFormField class="mb-2" label="Quantity" description="How much toner would you like to add" required>
+            <UInput
+              v-model="quantity"
+              id="Quantity"
+              type="text"
+              inputmode="numeric"
+              placeholder="quantity"
+              class="w-full"
+            />
+          </UFormField>
+          <UButton :disabled="loading" @click="addToner" color="primary">
+            {{ loading ? "Saving..." : "Add values" }}
+          </UButton>
+          <p v-if="msg">{{ msg }}</p>
+        </UForm>
+      </div>
   </div>
 </template>

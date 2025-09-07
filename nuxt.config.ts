@@ -7,7 +7,19 @@ export default defineNuxtConfig({
       database: true
     }
   },
-  modules: ['@nuxt/ui', ],
-  css: ['@/assets/css/main.css']
+  modules: ['@nuxt/ui', '@nuxt/ui-pro'],
+  css: ['@/assets/css/main.css'],
+   ui: {
+    theme: {
+      colors: [
+        'primary',
+        'secondary',  
+        'info',
+        'success',
+        'warning',
+        'error'
+      ]
+    }
+  }
 })
 
