@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       database: true
     }
   },
-  modules: ['@nuxt/ui', '@nuxt/ui-pro'],
+  modules: ['@nuxt/ui'],
   css: ['@/assets/css/main.css'],
    ui: {
     theme: {
