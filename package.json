@@ -14,12 +14,15 @@
     "@tailwindcss/vite": "^4.1.12",
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.3",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "tailwindcss": "^4.1.12",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.71",
-    "@iconify-json/simple-icons": "^1.2.49"
+    "@iconify-json/simple-icons": "^1.2.49",
+    "@types/node": "^24.9.1"
   }
 }
