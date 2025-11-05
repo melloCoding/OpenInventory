@@ -15,7 +15,6 @@
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.3",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7",
     "tailwindcss": "^4.1.12",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
